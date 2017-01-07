@@ -20,6 +20,12 @@ const isTestWatch = ENV === 'test-watch';
 const isTest = ENV === 'test' || isTestWatch;
 const isProd = ENV === 'build';
 
+// Helper functions
+function root(args) {
+  args = Array.prototype.slice.call(arguments, 0);
+  return path.join.apply(path, [__dirname].concat(args));
+}
+
 module.exports = function makeWebpackConfig() {
   /**
    * Config
@@ -273,8 +279,3 @@ module.exports = function makeWebpackConfig() {
   return config;
 }();
 
-// Helper functions
-function root(args) {
-  args = Array.prototype.slice.call(arguments, 0);
-  return path.join.apply(path, [__dirname].concat(args));
-}

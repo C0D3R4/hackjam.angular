@@ -10,6 +10,10 @@ export class Book {
 // TODO: Category Type
 export class Category {}
 
+@Component({
+  selector: 'bookstore',
+  templateUrl: 'app.template.html',
+})
 export class AppComponent {
   books: Book [] = []; // use mocks data instead
   categories: String [] = ['All', 'Web']; // use mocks data instead
