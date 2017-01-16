@@ -1,0 +1,5 @@
+<section [class.filter-is-visible]="!isSidebarOpen" class="gallery">
+    <ul>
+        <li *ngFor="let book of books"><img [src]="book.cover" click="clicked" /></li>
+    </ul>
+</section>

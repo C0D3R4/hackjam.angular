@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import * as autobind from 'autobind';
+
+// Mocks and Types
 import  categories, {  Category } from '../mocks/categories';
 import { Book, mockBooks } from '../mocks/books';
 
@@ -17,6 +20,7 @@ export class AppComponent {
     console.log('Will be implemented in the next section');
   }
 
+  @autobind
   selectCategory(selectedCategory: Category) {
    // change category
     this.categories = this.categories.map(category => {
@@ -35,6 +39,7 @@ export class AppComponent {
       .filter(book => book.category.toLowerCase().includes(category.toLowerCase()));
   }
 
+  @autobind
   search(searchTerm: string){
     searchTerm = searchTerm.toLowerCase();
     if(!searchTerm) {
@@ -46,7 +51,8 @@ export class AppComponent {
     }
   }
 
-  toggleSideBar(){
-    this.navClosed = !this.navClosed;
+  toggleSideBar(navClosed){
+    console.log(navClosed)
+    this.navClosed = navClosed;
   }
 }
