@@ -1,12 +1,14 @@
-const images = 'assets/img';
 
-export class Book {
-  title: String;
+// Book Type
+export interface Book {
+  title: string;
   cover: String;
   category: String;
 }
 
-export const mockBooks: Book [] = [
+
+const images = 'img';
+export const mockBooks: Book[] = [
   { title: 'JavaScript', cover: `${images}/angularjs.jpg`, category: 'Web' },
   { title: 'React Up and Running', cover: `${images}/reactjs.jpg`, category: 'Web' },
   { title: 'Learning React Native', cover: `${images}/reactnative.jpg`, category: 'Mobile' },
