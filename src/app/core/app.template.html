@@ -1,0 +1,53 @@
+<!--Header component: <bs-header> -->
+<header class="header">
+    <div class='overlay'>
+    <div class='logo'>
+        <h1>{{title}}</h1>
+    </div>
+    </div>
+</header>
+<!--End of header component-->
+
+<main class="main-content">
+
+    <!--Menu filters component: <bs-menubar/>-->
+    <div class="tab-filter-wrapper">
+        <div class="tab-filter">
+            <ul>
+            <li class="placeholder">
+                <a data-type="all" href="#0">All</a>
+            </li>
+            <li *ngFor="let category in categories" click="selectCategory(category)">
+                <a class.selected="category.selected" href="#0">{{category.name}}</a>
+            </li>
+            </ul>
+        </div>
+    </div>
+    <!--End of Menubar component-->
+
+    <!--BookList component: <bs-bookList/>-->
+    <section class.filter-is-visible="!navClosed" class="gallery">
+        <ul>
+            <li *ngFor="let book of books"><img src="book.cover" click="clicked"/></li>
+        </ul>
+    </section>
+    <!--End of BookList component-->
+
+    <!--Sidebar component: <bs-sidebar/> -->
+    <div>
+        <div [class.filter-is-visible]="!navClosed" class="filter">
+            <form>
+            <div class="filter-block">
+                <h4>Search</h4>
+                <div class="filter-content">
+                    <input type="search" #searchInput placeholder="title, price..." (input)="search(searchInput.value)" />
+                </div>
+            </div>
+            </form>
+            <a href="#0" class="close" click="toggleSideBar">Close</a>
+        </div>
+
+        <a href="#0" class="filter-trigger" click="toggleSideBar">Filters</a>
+    </div>
+    <!--End of Sidebar component-->
+</main>
